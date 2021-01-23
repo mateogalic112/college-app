@@ -1,0 +1,82 @@
+[
+  {
+    "model": "college_app.korisnik",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$216000$F5U7dw4jntRi$lRLUBTYj896RGHJCJ1C2ZtBoOOFDdpAA1uPexdRx3Tg=",
+      "last_login": "2021-01-10T14:55:26.030Z",
+      "is_superuser": true,
+      "username": "admin",
+      "first_name": "",
+      "last_name": "",
+      "email": "admin@example.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2021-01-10T12:53:52.671Z",
+      "role": "STUDENT",
+      "status": "NONE",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "college_app.korisnik",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$216000$F5U7dw4jntRi$lRLUBTYj896RGHJCJ1C2ZtBoOOFDdpAA1uPexdRx3Tg=",
+      "last_login": "2021-01-10T14:55:26.030Z",
+      "is_superuser": true,
+      "username": "mentor",
+      "first_name": "Ada",
+      "last_name": "Matic",
+      "email": "mentor@oss.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2021-01-10T12:53:52.671Z",
+      "role": "MENTOR",
+      "status": "NONE",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "college_app.korisnik",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$216000$F5U7dw4jntRi$lRLUBTYj896RGHJCJ1C2ZtBoOOFDdpAA1uPexdRx3Tg=",
+      "last_login": "2021-01-10T14:55:26.030Z",
+      "is_superuser": false,
+      "username": "redovni",
+      "first_name": "Mate",
+      "last_name": "Matic",
+      "email": "redovni@oss.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2021-01-10T12:53:52.671Z",
+      "role": "STUDENT",
+      "status": "REDOVNI",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "college_app.korisnik",
+    "pk": 4,
+    "fields": {
+      "password": "pbkdf2_sha256$216000$F5U7dw4jntRi$lRLUBTYj896RGHJCJ1C2ZtBoOOFDdpAA1uPexdRx3Tg=",
+      "last_login": "2021-01-10T14:55:26.030Z",
+      "is_superuser": false,
+      "username": "izvanredni",
+      "first_name": "Josip",
+      "last_name": "Matic",
+      "email": "izvanredni@oss.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2021-01-10T12:53:52.671Z",
+      "role": "STUDENT",
+      "status": "IZVANREDNI",
+      "groups": [],
+      "user_permissions": []
+    }
+  }
+]
