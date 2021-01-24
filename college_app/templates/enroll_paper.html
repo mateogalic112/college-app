@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block content %} 
+<div class="container">
+	<h2 class="py-4">Enroll Paper for <b>{{student.first_name}} {{student.last_name}}</b></h2>
+	<div class="row">
+		<div class="col col-md-6">
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">Available Subjects</th>
+					</tr>
+				</thead>
+				{% if messages %}
+					{% for msg in messages %}
+						<p class="text-danger">{{msg}}</p>
+					{% endfor %}
+				{% endif %}
+				<tbody>
+					{% for subject in subjects %}
+					{% if subject.id not in enrolled_subjects%}
+					<tr>
+						<td class="d-flex align-items-center">
+							<form action="{% url 'add_enrolled' %}" method="POST" class="d-inline-block">
+								{% csrf_token %}
+								<input type="hidden" name="student_id" value={{ student.id }} />
+  								<input type="hidden" name="predmet_id" value={{ subject.id }} />
+								<button type="submit" class="btn btn-primary btn mr-2"><i class="bi bi-plus-square"></i></button>
+							</form>
+							<span class="d-inline-block">{{subject}}</span>
+						</td>
+					</tr>
+					{% endif %}
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+        <div class="col col-md-6">
+			{% for i in range %}
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">Semestar {{forloop.counter}}</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for row in enroll_paper %}
+					{% if row.predmet.sem_redovni == i %}
+					<tr>
+						<td class="d-flex align-items-center">
+							{% if row.status == 'passed' %}
+								<form action="{% url 'update_enrolled' enroll_id=row.id %}" method="POST" class="d-inline-block">
+									{% csrf_token %}
+									<button type="submit" class="btn btn-success btn mr-2"><i class="bi bi-check-square"></i></button>
+								</form>
+							{% else %}
+								<form action="{% url 'update_enrolled' enroll_id=row.id %}" method="POST" class="d-inline-block">
+									{% csrf_token %}
+									<button type="submit" class="btn btn-info btn mr-2"><i class="bi bi-check2-circle"></i></button>
+								</form>
+								<form action="{% url 'remove_enrolled' enroll_id=row.id %}" method="POST" class="d-inline-block">
+									{% csrf_token %}
+									<button type="submit" class="btn btn-danger btn mr-2"><i class="bi bi-x-circle"></i></button>
+								</form>
+							{% endif %}
+							<span class="d-inline-block">{{row.predmet}}</span>
+						</td>
+					</tr>
+					{% endif %}
+					{% endfor %}
+				</tbody>
+			</table>
+			{% endfor %}
+        </div>
+	</div>
+</div>
+{% endblock %}

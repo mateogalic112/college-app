@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %} 
+<div class="container pb-5">
+	<div class="row">
+		<h2 class="py-4">Subject List</h2>
+		<table class="table">
+  			<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Name</th>
+					<th scope="col">ECTS</th>
+					<th scope="col">Optional</th>
+					<th scope="col">Actions</th>
+				</tr>
+  			</thead>
+  			<tbody>
+				{% for subject in subjects %}
+				<tr>
+					<th scope="row">{{subject.kod}}</th>
+					<td>{{subject.ime}}</td>
+					<td>{{subject.bodovi}}</td>
+					<td>{{subject.izborni}}</td>
+					<td class="d-flex">
+                        <a href="#" class="btn btn-info btn-sm mr-2">Details</a>
+                        <a href="#" class="btn btn-primary btn-sm mr-2">Edit</a>
+                    </td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</div>
+{% endblock %}
